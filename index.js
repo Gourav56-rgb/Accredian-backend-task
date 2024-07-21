@@ -2,6 +2,7 @@ import express from "express";
 import referRoute from "./routes/referral.js";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import cors from "cors"
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ mongoose
 
 const server = express();
 
+server.use(cors())
 server.use(express.json());
 
 server.use("/api", referRoute);
